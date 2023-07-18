@@ -18,4 +18,4 @@ to do list:
 - add if player gets to green area +1 on score then reset frog
 - add background music
 - if timer reaches 0 game over + restart button available
-- 
+
