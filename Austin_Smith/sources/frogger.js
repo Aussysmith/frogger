@@ -93,7 +93,8 @@ function startGame(event) {
       let spriteObjects = renderSprites();
       animateSprites(spriteObjects);
       moveFrog();
-      checkCollisions(); 
+      checkCollisions();
+      addScorePoint();
     }
   }
 }
@@ -116,6 +117,15 @@ const player = {
     score: 0,
     safeHomes: [true, true, true, true]
 };
+
+const addScorePoint = () => {
+      if(frog.y === 100) {
+        frog.x = 160;
+        frog.y = 470;
+        frog.direction = "up";
+        player.score++
+      }
+}
 
 // draws the background of the game
 function renderBackground() {
