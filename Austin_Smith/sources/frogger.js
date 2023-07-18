@@ -119,13 +119,14 @@ const player = {
 };
 
 const addScorePoint = () => {
-      if(frog.y === 100) {
-        frog.x = 160;
-        frog.y = 470;
-        frog.direction = "up";
-        player.score++
-      }
-}
+  if (frog.y <= 70) {
+    frog.x = 160;
+    frog.y = 470;
+    frog.direction = "up";
+    player.score++
+    renderScore();
+  }
+};
 
 // draws the background of the game
 function renderBackground() {
@@ -174,7 +175,7 @@ function renderLives() {
 function renderScore() {
     backgroundCtx.fillStyle = "white";
     backgroundCtx.font = "bold 24px Arial";
-    backgroundCtx.fillText("Score: " + player.score, 10, backgroundCanvas.height - 1);
+    backgroundCtx.fillText("Score: " + player.score, 0, backgroundCanvas.height - 1);
 }
 
 
@@ -239,6 +240,7 @@ function moveFrog(event) {
   frog.x = newX;
   frog.y = newY;
   checkCollisions();
+  addScorePoint();
   
   interfaceCtx.clearRect(0, 0, interfaceCanvas.width, interfaceCanvas.height);
   renderFrog();
